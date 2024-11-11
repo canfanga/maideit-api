@@ -1,0 +1,11 @@
+package com.maideit.maideit_api;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MaideitApiApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(MaideitApiApplication.class, args);
+	}
+}
