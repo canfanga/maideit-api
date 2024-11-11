@@ -19,8 +19,8 @@ public class LobbyController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Lobby> createLobby(@RequestBody CreateLobbyRequest request) {
-        Lobby lobby = lobbyService.createLobby(request);
+    public ResponseEntity<Lobby> createLobby() {
+        Lobby lobby = lobbyService.createLobby();
         return ResponseEntity.ok(lobby);
     }
 

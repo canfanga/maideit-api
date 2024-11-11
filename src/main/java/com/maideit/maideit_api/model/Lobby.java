@@ -2,6 +2,7 @@ package com.maideit.maideit_api.model;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,23 +14,54 @@ public class Lobby {
     @Column(unique = true, nullable = false)
     private String code;
 
-    private Boolean started = false;
+    private Boolean currentPlaying = false;
 
     @ElementCollection
     private List<String> members = new ArrayList<>();
 
-    // Setter for 'code'
+    private Date createdDate = new Date();
+
+    @Column(nullable = true)
+    private Date lastGameDate;
+
+    // Getters and Setters
     public void setCode(String code) {
         this.code = code;
     }
 
-    // Getter for 'members'
+    public String getCode() {
+        return code;
+    }
+
     public List<String> getMembers() {
         return members;
     }
 
-    // Setter for 'members' (optional)
     public void setMembers(List<String> members) {
         this.members = members;
+    }
+
+    public Boolean getCurrentPlaying() {
+        return currentPlaying;
+    }
+
+    public void setCurrentPlaying(Boolean currentPlaying) {
+        this.currentPlaying = currentPlaying;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getLastGameDate() {
+        return lastGameDate;
+    }
+
+    public void setLastGameDate(Date lastGameDate) {
+        this.lastGameDate = lastGameDate;
     }
 }
