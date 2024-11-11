@@ -19,9 +19,10 @@ public class Lobby {
     @ElementCollection
     private List<String> members = new ArrayList<>();
 
-    private Date createdDate = new Date();
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
 
-    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date lastGameDate;
 
     // Getters and Setters

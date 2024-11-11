@@ -1,6 +1,5 @@
 package com.maideit.maideit_api.controller;
 
-import com.maideit.maideit_api.dto.CreateLobbyRequest;
 import com.maideit.maideit_api.dto.JoinLobbyRequest;
 import com.maideit.maideit_api.dto.JoinLobbyResponse;
 import com.maideit.maideit_api.model.Lobby;
