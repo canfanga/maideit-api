@@ -1,5 +1,6 @@
 package com.maideit.maideit_api.controller;
 
+import com.maideit.maideit_api.dto.CreateLobbyRequest;
 import com.maideit.maideit_api.dto.JoinLobbyRequest;
 import com.maideit.maideit_api.dto.JoinLobbyResponse;
 import com.maideit.maideit_api.model.Lobby;
@@ -18,8 +19,8 @@ public class LobbyController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Lobby> createLobby() {
-        Lobby lobby = lobbyService.createLobby();
+    public ResponseEntity<Lobby> createLobby(@RequestBody CreateLobbyRequest request) {
+        Lobby lobby = lobbyService.createLobby(request);
         return ResponseEntity.ok(lobby);
     }
 

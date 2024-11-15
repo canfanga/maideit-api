@@ -1,5 +1,6 @@
 package com.maideit.maideit_api.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,8 +17,9 @@ public class Lobby {
 
     private Boolean currentPlaying = false;
 
-    @ElementCollection
-    private List<String> members = new ArrayList<>();
+    @OneToMany(mappedBy = "lobby", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Player> members = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -34,11 +36,11 @@ public class Lobby {
         return code;
     }
 
-    public List<String> getMembers() {
+    public List<Player> getMembers() {
         return members;
     }
 
-    public void setMembers(List<String> members) {
+    public void setMembers(List<Player> members) {
         this.members = members;
     }
 

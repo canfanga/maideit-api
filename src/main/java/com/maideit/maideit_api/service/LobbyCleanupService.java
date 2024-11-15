@@ -25,7 +25,6 @@ public class LobbyCleanupService {
         lobbyRepository.findAll().forEach(lobby -> {
             long timeSinceCreation = now.getTime() - lobby.getCreatedDate().getTime();
 
-            // Handle null lastGameDate by treating it as the creation date or skipping the check
             Date lastGameDate = lobby.getLastGameDate() != null ? lobby.getLastGameDate() : lobby.getCreatedDate();
             long timeSinceLastGame = now.getTime() - lastGameDate.getTime();
 
