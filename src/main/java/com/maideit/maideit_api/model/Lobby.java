@@ -15,6 +15,9 @@ public class Lobby {
     @Column(unique = true, nullable = false)
     private String code;
 
+    @Column(nullable = false)
+    private Boolean openAll;
+
     private Boolean currentPlaying = false;
 
     @OneToMany(mappedBy = "lobby", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -38,6 +41,14 @@ public class Lobby {
 
     public List<Player> getMembers() {
         return members;
+    }
+
+    public Boolean getOpenAll() {
+        return openAll;
+    }
+
+    public void setOpenAll(Boolean openAll) {
+        this.openAll = openAll;
     }
 
     public void setMembers(List<Player> members) {
